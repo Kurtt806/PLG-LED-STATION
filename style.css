@@ -1,0 +1,641 @@
+.hidden {
+  display: none;
+}
+
+body {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: rgb(241 241 241);
+}
+
+#BEGIN-progress {
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background-color: #4CAF50;
+}
+
+#BEGIN-progress::-webkit-progress-value {
+  background-color: #8A2BE2;
+}
+
+#BEGIN-progress::-webkit-progress-bar {
+  background-color: #D3D3D3;
+}
+
+.BEGIN-logo {
+  position: absolute;
+  top: 19.57%;
+  right: 0px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  width: 187px;
+  height: 116px;
+}
+
+.BEGIN-logo_title {
+  font: italic 100 52px/1.2 "Roboto";
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.BEGIN-logo_title_span0 {
+  font: italic 100 1em/1.2 "Roboto";
+}
+
+.BEGIN-logo_title_span1 {
+  font: italic 100 0.5em/1.2 "Roboto";
+}
+
+.BEGIN-logo_title_span2 {
+  font: italic 100 1em/1.2 "Roboto";
+}
+
+.BEGIN-version {
+  position: relative;
+  margin: 10px 0px 2%;
+  width: 52px;
+  font: 400 12px/1.25 "Roboto";
+  color: rgb(112, 112, 112);
+}
+
+.FROM {
+  position: absolute;
+  right: 0px;
+  bottom: 3.67%;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  margin: 0px auto;
+  width: 102px;
+  height: 30px;
+}
+
+.desc {
+  font: 400 12px/1.16 "Roboto";
+  color: rgb(112, 112, 112);
+  text-align: center;
+}
+
+.desc_span0 {
+  font: 1em/1.16 "Roboto";
+  color: rgb(112, 112, 112);
+}
+
+.desc_span1 {
+  font: 1.2em/1.14 "Roboto";
+  color: rgb(112, 112, 112);
+}
+
+.DASHBOARD-logo {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 8px 0px 20px 0px;
+  width: 114px;
+}
+
+.DASHBOARD-logo-title {
+  font: 400 21px/1.16 "Roboto";
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.DASHBOARD-logo-title_span0 {
+  font: italic 100 1em/1.21 "Roboto";
+}
+
+.DASHBOARD-logo-title_span1 {
+  font: italic 100 0.5em/1.18 "Roboto";
+}
+
+.DASHBOARD-logo-title_span2 {
+  font: italic 100 1em/1.21 "Roboto";
+}
+
+
+.dashb_flex_col {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  gap: 30px 0px;
+  margin: 0px auto;
+  height: 70vh;
+  max-height: calc(100vh - 155px - 30px);
+  padding: 0 40px;
+}
+
+.dashb_flex_row {
+  position: relative;
+  display: flex;
+  gap: 0px 24px;
+  width: 300px;
+  height: 600px;
+}
+
+.dashb_content {
+  position: relative;
+  width: 155px;
+  min-width: 0px;
+  min-height: 10px;
+  background-color: rgb(142 142 142);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 5px rgb(136 136 136 / 80%);
+}
+
+/* === IMG ===================*/
+.IMG_LOGO_APP {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150px;
+  height: 50px;
+  transform: translate(-50%, -50%);
+  filter: invert(100%);
+}
+
+.IMG_LOGO {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: auto;
+  height: 32px;
+}
+
+.IMG_TAB {
+  width: auto;
+  height: 32px;
+}
+
+.IMG_ICON {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+}
+
+.WIFI {
+  right: calc(12px + 32px + 30px);
+}
+
+.INFO {
+  right: calc(12px + 32px + 30px);
+}
+
+.IMG_CONTENT {
+  text-align: center;
+  width: 60px;
+  height: 60px;
+}
+
+/* === FC3 ===================*/
+
+.flex_col_control {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px 0px;
+  top: 30px;
+  width: 100%;
+  height: auto;
+  margin: 2%;
+}
+
+.flex_row_control {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 0px 8px;
+  width: 350px;
+}
+
+.meter_container {
+  position: relative;
+  width: 20px;
+  min-width: 20px;
+  height: 120px;
+  border-radius: 10px;
+}
+
+.meter_wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  background-color: rgb(142 142 142);
+  /* Màu nền tạm thời */
+  border-radius: 10px;
+  transform: rotate(180deg);
+  border: 2px solid #5d5d5d;
+  transition: height 1s ease;
+  /* Hiệu ứng chuyển động mượt mà */
+}
+
+.meter_rssi {
+  width: 100%;
+  height: inherit;
+  background-color: #585858;
+  border-radius: 10px;
+  transform: rotate(180deg);
+  transition: height 1s ease;
+  /* Hiệu ứng chuyển động mượt mà */
+
+}
+
+.title_rssi {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  transform: translate(-50%, 50%);
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font: 400 12px/1.16 "Roboto";
+  color: rgb(230, 230, 230);
+  transform: rotate(90deg);
+
+}
+
+.val_rssi {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, 50%);
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font: 400 12px/1.16 "Roboto";
+  color: rgb(230, 230, 230);
+  transform: rotate(90deg);
+}
+
+
+.content_box_state {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 120px;
+  background-color: rgb(191 191 191);
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 1px 6px 10px #56b75a;
+  transition: box-shadow 1s ease;
+  /* Hiệu ứng chuyển động mượt mà */
+}
+
+.flex_row_state {
+  display: flex;
+  gap: 0px 27px;
+  margin: 8px 14px 21px auto;
+  width: 195px;
+}
+
+.flex_col_state_1 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px 0px;
+  width: 84px;
+  min-width: 0px;
+}
+
+.content_box {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+
+}
+
+.info {
+  min-width: 0px;
+  left: 5px;
+  font: 400 12px/1.16 "Roboto";
+  color: rgb(0 0 0);
+  float: left;
+
+}
+
+.val_state {
+  width: 35px;
+  height: 23px;
+  min-height: 23px;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px;
+}
+
+.state-1 {
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 0px 30px;
+}
+
+.state-2 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 0px 30px;
+}
+
+.state-3 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 0px 30px;
+}
+
+.state-4 {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0px 0px 0px 30px;
+}
+
+.line {
+  margin-top: 1%;
+  background-color: #000;
+  width: 350px;
+  height: 2px;
+}
+
+/* === PANEL CONTROL ========================*/
+
+
+.content_box_control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2% auto 0px;
+  width: 350px;
+  background-color: rgb(191 191 191);
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 1px 6px 10px #595959;
+  gap: 10px 0px;
+}
+
+.flex_col_control {
+  position: relative;
+  display: flex;
+  gap: 10px 0px;
+  flex-direction: column;
+  margin: 10px 0px 10px 10px;
+  width: auto;
+  height: auto;
+}
+
+.content_name_control {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 56px;
+  min-width: 0px;
+  background-color: rgb(230, 230, 230);
+  border-radius: 5px 5px 5px 5px;
+}
+
+.content_name {
+  position: relative;
+
+  margin: 5px 14px 4px 6px;
+  font: 400 12px/1.16 "Roboto";
+  color: rgb(0 0 0);
+  text-align: center;
+}
+
+
+.image1 {
+  position: relative;
+  margin: 3px 0px 4px;
+  width: 264px;
+  min-width: 0px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  outline: none;
+  width: 75%;
+  height: 8px;
+  background: #e4e4e4;
+  opacity: 1;
+  transition: opacity 1ms;
+  border-radius: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #9335ff;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin: 17px 0px 0px;
+  width: 136px;
+  max-width: 100%;
+  font: 400 12px/1.16 "Roboto Slab", Helvetica, Arial, serif;
+  color: rgb(255, 255, 255);
+  text-align: center;
+  background-color: rgb(105, 105, 105);
+  border-radius: 5px 5px 5px 5px;
+  padding: 4.5px 24px 4.5px 24px;
+  letter-spacing: -0.2px;
+}
+
+/* === PANEL EFFECT =========================*/
+
+.content_box_effect {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 3% auto 0px;
+  width: 350px;
+  background-color: rgb(217, 217, 217);
+  border-radius: 10px 10px 10px 10px;
+  box-shadow: 1px 6px 10px #626262;
+}
+
+/* === PANEL CONFIG =========================*/
+.wifi {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 5% auto 0px;
+  width: 260px;
+  height: 300px;
+  background-color: rgb(217, 217, 217);
+  border-radius: 10px;
+}
+
+.wifi-list {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 5% auto 0px;
+  width: 260px;
+  height: 300px;
+  background-color: rgb(217, 217, 217);
+  border-radius: 10px;
+}
+
+.span {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 3% auto 0px;
+  width: 200px;
+  height: 35px;
+  background-color: rgb(166, 166, 166);
+  border-radius: 5px;
+}
+
+.text_name_wifi {
+  position: absolute;
+  display: flex;
+  left: 50px;
+}
+
+.wifi-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 4px 0;
+  width: 260px;
+  height: 100px;
+  background-color: rgb(217, 217, 217);
+  border-radius: 10px;
+}
+
+
+.signal-strength {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  right: 50px;
+  background-color: green;
+}
+
+.signal-strength.green {
+  background-color: green;
+}
+
+.signal-strength.yellow {
+  background-color: yellow;
+}
+
+.signal-strength.red {
+  background-color: red;
+}
+
+.loading-spinner {
+  position: absolute;
+  top: 50%;
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-left-color: #333;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  /* Animation cho xoay */
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.wifi-input_index {
+  margin: 2% auto 0px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  height: 20px;
+  background-color: rgb(190, 190, 190);
+  border-radius: 6px;
+}
+
+.flex_row_control {
+  display: flex;
+  flex-direction: row;
+  /* Xếp theo hàng ngang */
+  align-items: center;
+  /* Căn giữa các phần tử theo chiều dọc */
+  justify-content: space-between;
+  /* Canh các phần tử theo chiều ngang */
+}
+
+.wifi-buttons {
+  display: flex;
+  /* Sử dụng flexbox cho các nút rescan và reset */
+}
+
+.wifi-rescans {
+  width: 80px;
+  height: 20px;
+  padding: 10px 20px;
+  background-color: #5999dd;
+  color: white;
+  /* Màu chữ */
+  border-radius: 5px;
+  /* Bo góc */
+  cursor: pointer;
+  /* Con trỏ chuột thành pointer khi rê chuột qua */
+  margin-right: 10px;
+  /* Khoảng cách giữa các nút */
+}
+
+.wifi-reset {
+  width: 80px;
+  height: 20px;
+  padding: 10px 20px;
+  background-color: #dd5959;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.wifi-rescans:hover {
+  background-color: #1661af;
+}
+
+.wifi-reset:hover {
+  background-color: #df3030;
+}

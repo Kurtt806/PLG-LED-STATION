@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="description" content="ESP32 Remote Control with WebSocket">
+    <title>KRL</title>
+    <link rel="icon" type="image/x-icon" href="rgb.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="API.js"></script>
+    <script src="SOCKET.js"></script>
+</head>
+
+
+<body>
+    <div class="panel">
+        <section id="sections">
+            <!-- BEGIN -->
+            <section id="sections1" class="BEGIN">
+                <div class="BEGIN-version no-select" id="version"> ver 0.3.0 </div>
+                <div class="BEGIN-logo">
+                    <img class="IMG_LOGO_APP" src="logo_APP.webp" alt="Icon">
+                </div>
+                <progress id="BEGIN-progress" max="100" value="0"></progress>
+                <div class="FROM"><span class="desc"><span class="desc_span0">from<br /></span><span
+                            class="desc_span1">@KHOA</span></span>
+                </div>
+            </section>
+            <!-- DASHBOARD -->
+            <section id="sections2" class="DASHBOARD">
+                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                    <img class="IMG_LOGO" src="logo_DASHBOARD.webp" alt="Icon">
+                </div>
+
+                <img class="IMG_ICON WIFI" src="icon_wifi.webp" alt="Icon"
+                    onclick="showElement('sections10'); Send_SelectConfig()">
+
+                <div class="dashb_flex_col">
+                    <div class="dashb_flex_row">
+                        <div class="dashb_content" onclick="showElement('sections3')">
+                            <img class="IMG_CONTENT" src="icon_controlrc.webp">
+                        </div>
+                        <div class="dashb_content" onclick="showElement('sections4')">
+                            <img class="IMG_CONTENT" src="icon_ledoto.webp">
+                        </div>
+                    </div>
+                    <div class="dashb_flex_row">
+                        <div class="dashb_content" onclick="showElement('sections5')">
+                            <img class="IMG_CONTENT" src="icon_ledoto_rc.webp">
+                        </div>
+                        <div class="dashb_content" onclick="showElement('sections6')">
+                            <img class="IMG_CONTENT" src="icon_robot.webp">
+                        </div>
+                    </div>
+                    <div class="dashb_flex_row">
+                        <div class="dashb_content" onclick="showElement('sections7')">
+                            <img class="IMG_CONTENT" src="icon_game1.webp">
+                        </div>
+                        <div class="dashb_content" onclick="showElement('sections8')">
+                            <img class="IMG_CONTENT" src="img5.webp">
+                        </div>
+                    </div>
+                </div>
+                <div class="FROM" onclick="showElement('sections9')"><span class="desc"><span
+                            class="desc_span0">from<br /></span><span class="desc_span1">@KHOA</span></span>
+                </div>
+            </section>
+            <!-- Tab FC1  -->
+            <section id="sections3" class="FC1">
+                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                    <img class="IMG_LOGO IMG_TAB" src="logo_CONTROLRC.webp" alt="Icon">
+                </div>
+                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+            </section>
+            <!-- Tab FC2  -->
+            <section id="sections4" class="FC2">
+                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                    <img class="IMG_LOGO IMG_TAB" src="logo_LEDRC.webp" alt="Icon">
+                </div>
+                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+            </section>
+            <!-- Tab FC3  -->
+            <section id="sections5" class="FC3">
+                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                    <img class="IMG_LOGO IMG_TAB" src="logo_LEDOTO.webp" alt="Icon">
+                </div>
+
+                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+                <img class="IMG_ICON WIFI" src="icon_wifi.webp" alt="Icon"
+                    onclick="showElement('sections10'); Send_SelectConfig()">
+
+                <div class="flex_col_control">
+                    <div class="flex_row_control">
+                        <div class="meter_container">
+                            <div class="meter_wrapper">
+                                <div id="meter_rssi" class="meter_rssi"></div>
+                                <p class="title_rssi">RSSI</p>
+                                <p id="val_rssi" class="val_rssi">...%</p>
+                            </div>
+                        </div>
+                        <div class="content_box_state" id="box_state">
+                            <div class="flex_row_state">
+                                <div class="flex_col_state_1">
+                                    <div class="content_box">
+                                        <div class="info">Numled</div>
+                                        <div class="state-1 ">
+                                            <div class="val_state" id="slider1">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="content_box">
+                                        <div class="info">Bright</div>
+                                        <div class="state-2">
+                                            <div class="val_state" id="slider2">0</div>
+                                        </div>
+                                    </div>
+                                    <div class="content_box">
+                                        <div class="info">Speed</div>
+                                        <div class="state-3">
+                                            <div class="val_state" id="slider3">0</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="flex_col_state_1">
+                                    <div class="content_box">
+                                        <div class="info">Effect</div>
+                                        <div class="state-4">
+                                            <div class="val_state" id="valueState4">0</div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="line"></div>
+                    <div class="content_box_control">
+                        <div class="flex_col_control">
+                            <div class="flex_row_control">
+                                <div class="content_name_control">
+                                    <div class="content_name">Numled</div>
+                                </div>
+                                <div class="slider_val" id="slider_1">0</div>
+                                <input class="slider" type="range" onchange="Send_SliderPWM(this)"
+                                    oninput="Update_SliderPWM(this)" id="slider1" min="1" max="500" step="1" value="0"
+                                    class="slider">
+                            </div>
+                            <div class="flex_row_control">
+                                <div class="content_name_control">
+                                    <div class="content_name">Bright</div>
+                                </div>
+                                <div class="slider_val" id="slider_2">0</div>
+                                <input class="slider" type="range" onchange="Send_SliderPWM(this)"
+                                    oninput="Update_SliderPWM(this)" id="slider2" min="0" max="100" step="1" value="0"
+                                    class="slider">
+                            </div>
+                            <div class="flex_row_control">
+                                <div class="content_name_control">
+                                    <div class="content_name">Speed</div>
+                                </div>
+                                <div class="slider_val" id="slider_3">0</div>
+                                <input class="slider" type="range" onchange="Send_SliderPWM(this)"
+                                    oninput="Update_SliderPWM(this)" id="slider3" min="10" max="144" step="1" value="0"
+                                    class="slider">
+                            </div>
+                            <button class="btn">Power On Effect</button>
+                        </div>
+                    </div>
+                    <div class="content_box_effect">
+                        <div class="flex_col_control">
+                            <div class="flex_row_control">
+                                <select id="effectSelect" onchange="Send_SelectEffect(this)">
+                                    <option value="1">Hiệu ứng 1</option>
+                                    <option value="2">Hiệu ứng 2</option>
+                                    <option value="3">Hiệu ứng 3</option>
+                                    <!-- Thêm các tùy chọn khác nếu cần -->
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <!-- Tab FC4  -->
+            <section id="sections6" class="FC4">
+                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                    <img class="IMG_LOGO IMG_TAB" src="logo_BOCAPRC.webp" alt="Icon">
+                </div>
+                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+            </section>
+            <!-- Tab FC5  -->
+            <section id="sections7" class="FC5">
+                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                    <span class="DASHBOARD-logo-title"><span class="DASHBOARD-logo-title_span0">KUR <br /></span><span
+                            class="DASHBOARD-logo-title_span1">for</span><span class="DASHBOARD-logo-title_span2">
+                            Loto</span></span>
+                </div>
+                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+            </section>
+            <!-- Tab FC6  -->
+            <section id="sections8" class="FC6">
+                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                    <span class="DASHBOARD-logo-title"><span class="DASHBOARD-logo-title_span0">KUR <br /></span><span
+                            class="DASHBOARD-logo-title_span1">for</span><span class="DASHBOARD-logo-title_span2">
+                            UPDATE</span></span>
+                </div>
+                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+            </section>
+            <!-- Tab INFO  -->
+            <section id="sections9" class="INFO">
+                <div class="DASHBOARD-logo" onclick="event_click_logo()"></div>
+                <div class="INFOR-content">Hello everyone, this is my personal project encompassing all that I know.
+                    It's quite basic and somewhat messy due to the fact that I've self-taught myself HTML, JavaScript,
+                    WebSockets, etc. You can find me on GitHub or my personal Facebook and Instagram pages.</div>
+                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+
+            </section>
+            <!-- Tab WIFI  -->
+            <section id="sections10" class="CONFIG">
+                <div class="DASHBOARD-logo" onclick="event_click_logo()"></div>
+                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+                <div class="flex_col_control">
+                    <div class="wifi">
+                        <div class="loading-spinner" id="loading-spinner"></div>
+                        <div class="wifi-list hidden" id="wifi-list">
+                            <div class="span">
+                                <div class="text_name_wifi" id="wifi_1" onclick="handleWiFiClick(this)">
+                                </div>
+                                <div class="signal-strength" id="signal-strength-1"></div>
+                            </div>
+                            <div class="span">
+                                <div class="text_name_wifi" id="wifi_2" onclick="handleWiFiClick(this)">
+                                </div>
+                                <div class="signal-strength" id="signal-strength-2"></div>
+                            </div>
+                            <div class="span">
+                                <div class="text_name_wifi" id="wifi_3" onclick="handleWiFiClick(this)">
+                                </div>
+                                <div class="signal-strength" id="signal-strength-3"></div>
+                            </div>
+                            <div class="span">
+                                <div class="text_name_wifi" id="wifi_4" onclick="handleWiFiClick(this)">
+                                </div>
+                                <div class="signal-strength" id="signal-strength-4"></div>
+                            </div>
+                            <div class="span">
+                                <div class="text_name_wifi" id="wifi_5" onclick="handleWiFiClick(this)">
+                                </div>
+                                <div class="signal-strength" id="signal-strength-5"></div>
+                            </div>
+                            <div class="span">
+                                <div class="text_name_wifi" id="wifi_6" onclick="handleWiFiClick(this)">
+                                </div>
+                                <div class="signal-strength" id="signal-strength-6"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wifi-buttons">
+                        <div class="wifi-rescans" onclick="Send_rescanWIFI()">RESCAN</div>
+                        <div class="wifi-reset" onclick="Send_resetWIFI()">RESET</div>
+                    </div>
+                    <div class="wifi-input">
+                        <input class="wifi-input_index" type="text" id="wifiName" placeholder="Nhập tên WiFi">
+                        <input class="wifi-input_index" type="password" id="wifiPassword" placeholder="Nhập mật khẩu">
+                        <button class="wifi-input_index" onclick="event_click_connectToWifi(this)">CONNECT</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </div>
+    <script src="ProcessDataTX.js"></script>
+    <script src="ProcessDataRX.js"></script>
+    <script src="UpdateStackPage.js"></script>
+</body>
+
+</html>
