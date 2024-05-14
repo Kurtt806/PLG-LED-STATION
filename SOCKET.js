@@ -31,7 +31,7 @@ function onOpen(event) {
 
 function onClose(event) {
     console.log('[SOCKET]- Close WebSocket');
-    setTimeout(initWebSocket, 2000);
+    setTimeout(initWebSocket, 1000);
 }
 
 function onMessage(event) {

@@ -14,9 +14,8 @@
     <script src="SOCKET.js"></script>
 </head>
 
-
 <body>
-    <div class="panel">
+    <div class="container">
         <section id="sections">
             <!-- BEGIN -->
             <section id="sections1" class="BEGIN">
@@ -29,37 +28,37 @@
                             class="desc_span1">@KHOA</span></span>
                 </div>
             </section>
+
             <!-- DASHBOARD -->
             <section id="sections2" class="DASHBOARD">
-                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                <div class="TOPBAR" onclick="event_click_logo()">
                     <img class="IMG_LOGO" src="logo_DASHBOARD.webp" alt="Icon">
+                    <img class="IMG_ICON WIFI" src="icon_wifi.webp" alt="Icon"
+                        onclick="showElement('sections10'); Send_SelectConfig()">
                 </div>
 
-                <img class="IMG_ICON WIFI" src="icon_wifi.webp" alt="Icon"
-                    onclick="showElement('sections10'); Send_SelectConfig()">
-
-                <div class="dashb_flex_col">
-                    <div class="dashb_flex_row">
-                        <div class="dashb_content" onclick="showElement('sections3')">
+                <div class="dashboard_flex_col">
+                    <div class="dashboard_flex_row">
+                        <div class="dashboard_content" onclick="showElement('sections3')">
                             <img class="IMG_CONTENT" src="icon_controlrc.webp">
                         </div>
-                        <div class="dashb_content" onclick="showElement('sections4')">
+                        <div class="dashboard_content" onclick="showElement('sections4')">
                             <img class="IMG_CONTENT" src="icon_ledoto.webp">
                         </div>
                     </div>
-                    <div class="dashb_flex_row">
-                        <div class="dashb_content" onclick="showElement('sections5')">
+                    <div class="dashboard_flex_row">
+                        <div class="dashboard_content" onclick="showElement('sections5')">
                             <img class="IMG_CONTENT" src="icon_ledoto_rc.webp">
                         </div>
-                        <div class="dashb_content" onclick="showElement('sections6')">
+                        <div class="dashboard_content" onclick="showElement('sections6')">
                             <img class="IMG_CONTENT" src="icon_robot.webp">
                         </div>
                     </div>
-                    <div class="dashb_flex_row">
-                        <div class="dashb_content" onclick="showElement('sections7')">
+                    <div class="dashboard_flex_row">
+                        <div class="dashboard_content" onclick="showElement('sections7')">
                             <img class="IMG_CONTENT" src="icon_game1.webp">
                         </div>
-                        <div class="dashb_content" onclick="showElement('sections8')">
+                        <div class="dashboard_content" onclick="showElement('sections8')">
                             <img class="IMG_CONTENT" src="img5.webp">
                         </div>
                     </div>
@@ -68,13 +67,16 @@
                             class="desc_span0">from<br /></span><span class="desc_span1">@KHOA</span></span>
                 </div>
             </section>
+
             <!-- Tab FC1  -->
             <section id="sections3" class="FC1">
-                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                <div class="TOPBAR" onclick="event_click_logo()">
                     <img class="IMG_LOGO IMG_TAB" src="logo_CONTROLRC.webp" alt="Icon">
+                    <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
                 </div>
-                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+
             </section>
+
             <!-- Tab FC2  -->
             <section id="sections4" class="FC2">
                 <div class="DASHBOARD-logo" onclick="event_click_logo()">
@@ -82,18 +84,18 @@
                 </div>
                 <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
             </section>
+
             <!-- Tab FC3  -->
             <section id="sections5" class="FC3">
-                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                <div class="TOPBAR" onclick="event_click_logo()">
                     <img class="IMG_LOGO IMG_TAB" src="logo_LEDOTO.webp" alt="Icon">
+                    <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+                    <img class="IMG_ICON WIFI" src="icon_wifi.webp" alt="Icon"
+                        onclick="showElement('sections10'); Send_SelectConfig()">
                 </div>
 
-                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
-                <img class="IMG_ICON WIFI" src="icon_wifi.webp" alt="Icon"
-                    onclick="showElement('sections10'); Send_SelectConfig()">
-
-                <div class="flex_col_control">
-                    <div class="flex_row_control">
+                <div class="flex_col_FC3">
+                    <div class="flex_row_FC3">
                         <div class="meter_container">
                             <div class="meter_wrapper">
                                 <div id="meter_rssi" class="meter_rssi"></div>
@@ -135,92 +137,113 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="line"></div>
-                    <div class="content_box_control">
-                        <div class="flex_col_control">
-                            <div class="flex_row_control">
-                                <div class="content_name_control">
-                                    <div class="content_name">Numled</div>
+
+                    <div class="flex_row_FC3">
+                        <div class="content_box_control">
+                            <div class="flex_col_control">
+                                <div class="flex_row_control">
+                                    <div class="content_name_control">
+                                        <div class="content_name">Numled</div>
+                                    </div>
+                                    <div class="slider_val" id="slider_1">0</div>
+                                    <input class="slider" type="range" onchange="Send_SliderPWM(this)"
+                                        oninput="Update_SliderPWM(this)" id="slider1" min="1" max="500" step="1"
+                                        value="0" class="slider">
                                 </div>
-                                <div class="slider_val" id="slider_1">0</div>
-                                <input class="slider" type="range" onchange="Send_SliderPWM(this)"
-                                    oninput="Update_SliderPWM(this)" id="slider1" min="1" max="500" step="1" value="0"
-                                    class="slider">
-                            </div>
-                            <div class="flex_row_control">
-                                <div class="content_name_control">
-                                    <div class="content_name">Bright</div>
+                                <div class="flex_row_control">
+                                    <div class="content_name_control">
+                                        <div class="content_name">Bright</div>
+                                    </div>
+                                    <div class="slider_val" id="slider_2">0</div>
+                                    <input class="slider" type="range" onchange="Send_SliderPWM(this)"
+                                        oninput="Update_SliderPWM(this)" id="slider2" min="0" max="100" step="1"
+                                        value="0" class="slider">
                                 </div>
-                                <div class="slider_val" id="slider_2">0</div>
-                                <input class="slider" type="range" onchange="Send_SliderPWM(this)"
-                                    oninput="Update_SliderPWM(this)" id="slider2" min="0" max="100" step="1" value="0"
-                                    class="slider">
-                            </div>
-                            <div class="flex_row_control">
-                                <div class="content_name_control">
-                                    <div class="content_name">Speed</div>
+                                <div class="flex_row_control">
+                                    <div class="content_name_control">
+                                        <div class="content_name">Speed</div>
+                                    </div>
+                                    <div class="slider_val" id="slider_3">0</div>
+                                    <input class="slider" type="range" onchange="Send_SliderPWM(this)"
+                                        oninput="Update_SliderPWM(this)" id="slider3" min="10" max="144" step="1"
+                                        value="0" class="slider">
                                 </div>
-                                <div class="slider_val" id="slider_3">0</div>
-                                <input class="slider" type="range" onchange="Send_SliderPWM(this)"
-                                    oninput="Update_SliderPWM(this)" id="slider3" min="10" max="144" step="1" value="0"
-                                    class="slider">
+                                <button class="btn">Power On Effect</button>
                             </div>
-                            <button class="btn">Power On Effect</button>
                         </div>
                     </div>
-                    <div class="content_box_effect">
-                        <div class="flex_col_control">
-                            <div class="flex_row_control">
-                                <select id="effectSelect" onchange="Send_SelectEffect(this)">
-                                    <option value="1">Hiệu ứng 1</option>
-                                    <option value="2">Hiệu ứng 2</option>
-                                    <option value="3">Hiệu ứng 3</option>
-                                    <!-- Thêm các tùy chọn khác nếu cần -->
-                                </select>
-                            </div>
+
+                    <div class="flex_row_FC3">
+                        <div class="content_box_effect">
+                            <select id="effectSelect" onchange="Send_SelectEffect(this)">
+                                <option value="1">rainbow</option>
+                                <option value="2">rainbowWithGlitter</option>
+                                <option value="3">confetti</option>
+                                <option value="4">sinelon</option>
+                                <option value="5">juggle</option>
+                                <option value="6">bpm</option>
+                                <option value="7">Hiệu ứng 8</option>
+                                <option value="8">Hiệu ứng 9</option>
+                                <option value="9">Hiệu ứng 10</option>
+                                <option value="10">Hiệu ứng 11</option>
+                                <option value="11">Hiệu ứng 12</option>
+                            </select>
                         </div>
                     </div>
                 </div>
 
             </section>
+
             <!-- Tab FC4  -->
             <section id="sections6" class="FC4">
-                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                <div class="TOPBAR" onclick="event_click_logo()">
                     <img class="IMG_LOGO IMG_TAB" src="logo_BOCAPRC.webp" alt="Icon">
+                    <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
                 </div>
-                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+
             </section>
+
             <!-- Tab FC5  -->
             <section id="sections7" class="FC5">
-                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                <div class="TOPBAR" onclick="event_click_logo()">
                     <span class="DASHBOARD-logo-title"><span class="DASHBOARD-logo-title_span0">KUR <br /></span><span
                             class="DASHBOARD-logo-title_span1">for</span><span class="DASHBOARD-logo-title_span2">
                             Loto</span></span>
+                    <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
                 </div>
-                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+
             </section>
+
             <!-- Tab FC6  -->
             <section id="sections8" class="FC6">
-                <div class="DASHBOARD-logo" onclick="event_click_logo()">
+                <div class="TOPBAR" onclick="event_click_logo()">
                     <span class="DASHBOARD-logo-title"><span class="DASHBOARD-logo-title_span0">KUR <br /></span><span
                             class="DASHBOARD-logo-title_span1">for</span><span class="DASHBOARD-logo-title_span2">
                             UPDATE</span></span>
+                    <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
                 </div>
-                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+
             </section>
+
             <!-- Tab INFO  -->
             <section id="sections9" class="INFO">
-                <div class="DASHBOARD-logo" onclick="event_click_logo()"></div>
+                <div class="TOPBAR" onclick="event_click_logo()">
+                </div>
                 <div class="INFOR-content">Hello everyone, this is my personal project encompassing all that I know.
                     It's quite basic and somewhat messy due to the fact that I've self-taught myself HTML, JavaScript,
                     WebSockets, etc. You can find me on GitHub or my personal Facebook and Instagram pages.</div>
                 <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
 
             </section>
+
             <!-- Tab WIFI  -->
             <section id="sections10" class="CONFIG">
-                <div class="DASHBOARD-logo" onclick="event_click_logo()"></div>
-                <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+                <div class="TOPBAR" onclick="event_click_logo()">
+                    <img class="IMG_ICON" src="icon_ return.webp" alt="Icon" onclick="showElement('sections2')">
+                </div>
+
                 <div class="flex_col_control">
                     <div class="wifi">
                         <div class="loading-spinner" id="loading-spinner"></div>
@@ -268,6 +291,7 @@
                     </div>
                 </div>
             </section>
+
         </section>
     </div>
     <script src="ProcessDataTX.js"></script>

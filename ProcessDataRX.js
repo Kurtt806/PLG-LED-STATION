@@ -18,12 +18,14 @@ function processRX() {
                         handleSlider(api.RANK(), api.VALUE());
                         break;
                     case 3:
+                        // Xử lý EFFECT
                         handleEffect(api.VALUE());
                         break;
                     case 4:
 
                         break;
                     case 5:
+                        // Xử lý CONFIG
                         handleConfig(api.RANK(), api.VALUE());
                         break;
                     default:
@@ -100,6 +102,11 @@ function handleConfig(RANK, VALUE) {
         // Hiển thị danh sách wifi và ẩn biểu tượng loading
         document.getElementById("wifi-list").classList.remove('hidden');
         document.getElementById("loading-spinner").classList.add('hidden');
+    }
+    else if (RANK === 3) {
+     
+
+
 
     }
 }
